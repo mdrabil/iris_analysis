@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application Form</title>
+    <!-- Tailwind CSS CDN -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+        <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Heroicons CDN -->
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body class="bg-gray-950 text-gray-200">
+    <!-- Application Form -->
+    <section class="max-w-3xl mx-auto px-4 py-12 relative">
+      <!-- Go Back Button -->
+      
+      
+      <div class="rounded-3xl border border-yellow-400/30 bg-gray-900/80 backdrop-blur p-6 md:p-10 shadow-xl">
+          <!-- onclick="history.back()"  -->
+          <button
+           onclick="window.location.href='index.html'"
+            class="absolute top-4 right-4 p-2 rounded-full bg-gray-800 hover:bg-gray-700 text-yellow-400 transition"
+            title="Go Back">
+            <i data-feather="arrow-left"></i>
+          </button>
+          <h1 class="text-2xl md:text-3xl font-bold mb-6 text-yellow-400">Application Form</h1>
+
+        <form class="space-y-6">
+          <!-- 1) Video Confirmation -->
+          <div>
+            <label class="block font-semibold mb-2">1) Have you watched the complete Video?</label>
+            <div class="space-y-2 text-lg md:text-xl text-gray-300">
+              <label class="flex items-center gap-2"><input type="radio" name="watched" value="Yes" required> Yes</label>
+              <label class="flex items-center gap-2"><input type="radio" name="watched" value="No"> No</label>
+            </div>
+            <p class="mt-2 text-sm text-gray-400">If not, please watch the video before applying.</p>
+          </div>
+
+          <!-- 2) Personal Details -->
+          <div>
+            <h2 class="text-xl font-semibold mb-4">2) Personal Details</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <input type="text" placeholder="Full Name" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="Contact Number" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="email" placeholder="Email Id" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="City" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="State" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="Country" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+            </div>
+          </div>
+
+          <!-- 3) Eligibility Criteria -->
+          <div>
+            <h2 class="text-xl font-semibold mb-4">3) Eligibility Criteria</h2>
+            <label class="block mb-2">Qualification</label>
+            <div class="space-y-2 text-lg md:text-xl text-gray-300" style="display: flex; align-items: center;justify-content: space-around; flex-wrap: wrap; gap: 5px;">
+              <label class="flex items-center gap-2"><input type="radio" name="qualification" value="Graduate"> Graduate</label>
+              <label class="flex items-center gap-2"><input type="radio" name="qualification" value="Post Graduate"> Post Graduate</label>
+              <label class="flex items-center gap-2"><input type="radio" name="qualification" value="Doctorate"> Doctorate</label>
+              <label class="flex items-center gap-2"><input type="radio" name="qualification" value="Others"> Others</label>
+            </div>
+          </div>
+
+          <!-- 4) Age -->
+          <div>
+            <label class="block font-semibold mb-2">4) Age</label>
+            <input type="number" placeholder="Enter your age" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+          </div>
+
+          <!-- 5) Profession -->
+          <div>
+            <h2 class="text-xl font-semibold mb-4">5) Profession</h2>
+            <!-- <div class="space-y-2 text-lg md:text-xl text-gray-300"> -->
+                <div class="space-y-2 text-lg md:text-xl text-gray-300" style="display: flex; align-items: center;justify-content: space-around; flex-wrap: wrap; gap: 5px;">
+              <label class="flex items-center gap-2"><input type="radio" name="profession" value="Salaried"> Salaried</label>
+              <label class="flex items-center gap-2"><input type="radio" name="profession" value="Business"> Business</label>
+              <label class="flex items-center gap-2"><input type="radio" name="profession" value="Others"> Others</label>
+            </div>
+          </div>
+
+          <!-- Investment Info -->
+          <div class="bg-gray-800/60 border border-yellow-400/20 rounded-lg p-4">
+            <p>Required investment: <span class="font-semibold text-yellow-400">₹8,44,425</span></p>
+            <p>Current Offer: <span class="font-semibold text-green-400">₹5,55,555</span></p>
+            <p>Savings: <span class="font-semibold text-blue-400">₹2,88,870</span></p>
+          </div>
+
+          <!-- 6) Fund Status -->
+          <div>
+            <h2 class="text-xl font-semibold mb-4">6) What is your fund’s status?</h2>
+            <!-- <div class="space-y-2 text-lg md:text-xl text-gray-300"> -->
+                            <div class="space-y-2 text-lg md:text-xl text-gray-300" style="display: flex; align-items: center;justify-content: space-around; flex-wrap: wrap; gap: 5px;">
+              <label class="flex items-center gap-2"><input type="radio" name="funds" value="Available"> Available</label>
+              <label class="flex items-center gap-2"><input type="radio" name="funds" value="Can be arranged"> Can be arranged</label>
+            </div>
+          </div>
+
+          <!-- 7) Feedback -->
+          <div>
+            <h2 class="text-xl font-semibold mb-4">7) Write 3 points that you liked the most about Iris Analysis Business</h2>
+            <div class="space-y-3">
+              <input type="text" placeholder="Point a" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="Point b" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="Point c" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="text-right">
+            <button type="submit" class="px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold hover:from-yellow-500 hover:to-yellow-700 transition">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+        <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
