@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="bg-gray-950 text-gray-200 font-sans">
+
+    <!-- Loader -->
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-black/70 z-50 hidden">
+      <div class="animate-spin rounded-full h-16 w-16 border-4 border-yellow-400 border-t-transparent"></div>
+    </div>
+
+    <section class="max-w-5xl mx-auto px-4 py-10 relative">
+      <!-- Go Back Button -->
+      <button
+        onclick="window.location.href='index.html'"
+        class="absolute top-4 right-4 p-2 rounded-full bg-gray-800 hover:bg-gray-700 text-yellow-400 transition"
+        title="Go Back">
+        <i data-feather="arrow-left"></i>
+      </button>
+
+      <h1 class="text-3xl md:text-4xl font-bold mb-8 text-yellow-400 text-center">Application Form</h1>
+
+      <!-- Form -->
+      <form id="applicationForm" class="space-y-8 bg-gray-900/60 p-6 md:p-10 rounded-2xl shadow-xl">
+        
+        <!-- 1) Video Confirmation -->
+        <div>
+          <label class="block font-semibold mb-3 text-lg">Have you watched the complete Video? <span class="text-red-500">*</span></label>
+          <div class="space-y-2 text-lg md:text-xl text-gray-300">
+            <label class="flex items-center gap-2"><input type="radio" name="watched" value="Yes" required> ✅ Yes</label>
+            <label class="flex items-center gap-2"><input type="radio" name="watched" value="No"> ❌ No</label>
+          </div>
+          <p id="videoWarning" class="mt-4 text-sm text-red-400 hidden">
+            ❌ Please complete the video before applying.  
+            <button type="button" onclick="window.location.href='index.html'" class="mt-2 px-6 py-2 rounded-full bg-gray-700 hover:bg-gray-600 text-yellow-300 font-semibold">Go Back</button>
+          </p>
+        </div>
+
+        <!-- Rest of the form -->
+        <div id="formFields" class="hidden opacity-0 transition-opacity duration-500 space-y-8">
+          
+          <!-- Personal Details -->
+          <div>
+            <h2 class="section-heading">Personal Details <span class="text-red-500">*</span></h2>
+            <div class="grid md:grid-cols-2 gap-4">
+              <input type="text" placeholder="Full Name" class="form-input">
+              <input type="tel" placeholder="Contact Number" pattern="[0-9]{10}" maxlength="10" class="form-input">
+              <input type="email" placeholder="Email Id" class="form-input">
+              <input type="text" placeholder="City" class="form-input">
+              <input type="text" placeholder="State" class="form-input">
+              <input type="text" placeholder="Country" class="form-input">
+            </div>
+          </div>
+
+          <!-- Eligibility Criteria -->
+          <div>
+            <h2 class="section-heading">Eligibility Criteria <span class="text-red-500">*</span></h2>
+            <div class="flex flex-wrap gap-5 text-lg text-gray-300">
+              <label class="flex items-center gap-2"><input type="radio" name="qualification" value="Graduate"> Graduate</label>
+              <label class="flex items-center gap-2"><input type="radio" name="qualification" value="Post Graduate"> Post Graduate</label>
+              <label class="flex items-center gap-2"><input type="radio" name="qualification" value="Doctorate"> Doctorate</label>
+              <label class="flex items-center gap-2"><input type="radio" name="qualification" value="Others"> Others</label>
+            </div>
+          </div>
+
+          <!-- Age -->
+          <div>
+            <label class="block font-semibold mb-2">Age <span class="text-red-500">*</span></label>
+            <input type="number" placeholder="Enter your age" class="form-input">
+          </div>
+
+          <!-- Profession -->
+          <div>
+            <h2 class="section-heading">Profession <span class="text-red-500">*</span></h2>
+            <div class="flex flex-wrap gap-5 text-lg text-gray-300">
+              <label class="flex items-center gap-2"><input type="radio" name="profession" value="Salaried"> Salaried</label>
+              <label class="flex items-center gap-2"><input type="radio" name="profession" value="Business"> Business</label>
+              <label class="flex items-center gap-2"><input type="radio" name="profession" value="Others"> Others</label>
+            </div>
+          </div>
+
+          <!-- Investment Info -->
+          <div class="investment-box">
+            <ul class="list-disc pl-6 space-y-2 text-gray-200">
+              <li><span class="text-yellow-300 font-semibold">Required Investment:</span> ₹8,44,425</li>
+              <li><span class="text-green-400 font-semibold">Current Offer Price:</span> ₹5,55,555</li>
+              <li><span class="text-blue-400 font-semibold">You Save:</span> ₹2,88,870 🎉</li>
+            </ul>
+          </div>
+
+          <!-- Funds -->
+          <div>
+            <h2 class="section-heading">What is your fund’s status? <span class="text-red-500">*</span></h2>
+            <div class="flex flex-wrap gap-5 text-lg text-gray-300">
+              <label class="flex items-center gap-2"><input type="radio" name="funds" value="Available"> Available</label>
+              <label class="flex items-center gap-2"><input type="radio" name="funds" value="Can be arranged"> Can be arranged</label>
+            </div>
+          </div>
+
+          <!-- Feedback (Optional) -->
+          <div>
+            <h2 class="section-heading">3 Things You Liked (Optional)</h2>
+            <div class="space-y-3">
+              <input type="text" placeholder="Point a (optional)" class="form-input">
+              <input type="text" placeholder="Point b (optional)" class="form-input">
+              <input type="text" placeholder="Point c (optional)" class="form-input">
+            </div>
+          </div>
+
+          <!-- Strengths (Optional) -->
+          <div>
+            <h2 class="section-heading">Your Strengths / Qualities (Optional)</h2>
+            <div class="space-y-3">
+              <input type="text" placeholder="Quality a (optional)" class="form-input">
+              <input type="text" placeholder="Quality b (optional)" class="form-input">
+              <input type="text" placeholder="Quality c (optional)" class="form-input">
+            </div>
+          </div>
+
+          <!-- Buttons -->
+          <div class="text-center md:text-right mt-6 space-x-4">
+            <button type="reset" class="btn-reset">Reset</button>
+            <button type="submit" class="btn-submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
