@@ -149,18 +149,18 @@
           <div>
             <h2 class="text-xl font-semibold mb-4"> Write 3 points that you liked the most about Iris Analysis Business</h2>
             <div class="space-y-3">
-              <input type="text" placeholder="Point a" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
-              <input type="text" placeholder="Point b" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
-              <input type="text" placeholder="Point c" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="1" name="p1"  class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="2" name="p2"  class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="3" name="p3"  class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
             </div>
           </div>
 
               <div>
-            <h2 class="text-xl font-semibold mb-4">Please list three strengths or qualities that make you a good fit for this business.</h2>
+            <h2 class="text-xl font-semibold mb-4">Please Write 3 strengths or qualities that make you a good fit for this business.</h2>
             <div class="space-y-3">
-              <input type="text" placeholder="Quality A"  class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
-              <input type="text" placeholder="Quality B" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
-              <input type="text" placeholder="Quality C" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="1" name="q1"   class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="2" name="q2"  class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input type="text" placeholder="3" name="q3" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
             </div>
           </div>
 
@@ -230,12 +230,12 @@ const scriptURL = "https://script.google.com/macros/s/AKfycbzk_B7TeGzGzqK8V7vkrM
           age: document.querySelector("input[placeholder='Enter your age']").value,
           profession: document.querySelector("input[name='profession']:checked")?.value || "",
           funds: document.querySelector("input[name='funds']:checked")?.value || "",
-          pointA: document.querySelector("input[placeholder='Point a']")?.value,
-          pointB: document.querySelector("input[placeholder='Point b']")?.value,
-          pointC: document.querySelector("input[placeholder='Point c']")?.value,
-          qualityA: document.querySelector("input[placeholder='Quality A']")?.value,
-          qualityB: document.querySelector("input[placeholder='Quality B']")?.value,
-          qualityC: document.querySelector("input[placeholder='Quality C']")?.value
+          pointA: document.querySelector("input[name='p1']")?.value,
+          pointB: document.querySelector("input[name='p2']")?.value,
+          pointC: document.querySelector("input[name='p3']")?.value,
+          qualityA: document.querySelector("input[name='q1']")?.value,
+          qualityB: document.querySelector("input[name='q2']")?.value,
+          qualityC: document.querySelector("input[name='q3']")?.value
         };
 
         let requiredFields = ["fullName","contactNumber","email","city","state","country","qualification","age","profession","funds"];
