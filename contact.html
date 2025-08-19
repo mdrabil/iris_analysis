@@ -23,25 +23,45 @@
       <div class="rounded-3xl border border-yellow-400/30 bg-gray-900/80 backdrop-blur p-6 md:p-10 shadow-xl">
         
         <!-- STEP 1: Video Confirmation -->
-        <div id="videoStep">
-          <h1 class="text-2xl md:text-3xl font-bold mb-6 text-yellow-400">Application Form</h1>
-                     <h2 class="text- font-semibold mb-6" style="white-space: nowrap;"> Have you watched the complete Video? <span class="text-red-500">*</span></h2>
-          <div class="space-y-2 text-lg md:text-xl text-gray-300">
-            <label class="flex items-center gap-2">
-              <input type="radio" name="watchedFirst" value="Yes"> Yes 
-            </label>
-            <label class="flex items-center gap-2">
-              <input type="radio" name="watchedFirst" value="No"> No 
-            </label>
-          </div>
-          <p id="watchMsg" class="mt-4 text-sm text-red-400 hidden"> Please watch the video before applying.</p>
-        </div>
+    <div id="videoStep" class="text-center">
+  <h1 class="text-2xl md:text-3xl font-bold mb-6 text-yellow-400">Application Form</h1>
+  <p class="block font-semibold mb-4">Have you watched the complete Video? <span class="text-red-500">*</span></p>
+  
+  <!-- ✅ Stylish Yes / No Buttons -->
+  <div class="flex justify-center gap-6">
+    <button 
+      id="yesBtn"
+      class="px-6 py-2 rounded-full bg-green-600 hover:bg-green-700 text-white font-bold shadow-md transition">
+       Yes
+    </button>
+    <button 
+      id="noBtn"
+      class="px-6 py-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold shadow-md transition">
+       No
+    </button>
+  </div>
+
+  <p id="watchMsg" class="mt-4 text-sm text-red-400 hidden">Please watch the video before applying.</p>
+  
+  <button 
+    id="backBtn" 
+    onclick="window.location.href='index.html'" 
+    class="hidden mt-4 px-6 py-2 rounded-full bg-gray-800 hover:bg-gray-700 text-yellow-400 transition flex items-center gap-2 mx-auto">
+    <i data-feather="arrow-left"></i> Watch Video
+  </button>
+</div>
+
 
         <!-- STEP 2: Original Full Form -->
-        <form id="applicationForm" class="space-y-6 ">
-          <!-- 🔥 YOUR ORIGINAL FORM CONTENT YAHI SE START HOGA -->
-          
+      
+      </div>
 
+
+    <!-- ✅ Application Form Wrapper (hidden by default) -->
+<div id="formWrapper" class="hidden opacity-0 translate-y-4 transition-all duration-700">
+  <div class="rounded-3xl border border-yellow-400/30 bg-gray-900/80 backdrop-blur p-6 md:p-10 shadow-xl mt-6">
+    <form id="applicationForm" class="space-y-6">
+  <form id="applicationForm" class="space-y-6 ">
           <div>
             <h2 class="text-xl font-semibold mb-4" style="white-space: nowrap;"> Personal Details <span style="color: red; font-weight: bold;"> *</span></h2>
             <div class="grid md:grid-cols-2 gap-4">
@@ -94,7 +114,13 @@
             </div>
           </div>
 
-     
+          <!-- Investment Info -->
+          <!-- <div class="bg-gray-800/60 border border-yellow-400/20 rounded-lg p-4">
+            <p>Required investment: <span class="font-semibold text-yellow-400">₹8,44,425</span></p>
+            <p>Current Offer: <span class="font-semibold text-green-400">₹5,55,555</span></p>
+            <p>Savings: <span class="font-semibold text-blue-400">₹2,88,870</span></p>
+          </div> -->
+          <!-- Investment Info Section -->
 <div class="bg-gradient-to-r from-gray-900 to-gray-800 border border-yellow-400/40 rounded-xl p-6 shadow-lg">
   <!-- <h3 class="text-xl font-bold text-yellow-400 mb-3">💡 Exclusive Investment Offer</h3> -->
   <ul class="list-disc pl-6 space-y-2 text-gray-200">
@@ -135,50 +161,52 @@
             </div>
           </div>
 
+          <!-- ✅ Baaki aapka pura form jaisa ka taisa rahega (Qualification, Age, Profession, Funds, Feedback, Qualities, Investment, Reset, Submit buttons) -->
+
           <div class="text-right">
             <button type="reset" class="px-10 py-2 rounded-full bg-red-600 text-white font-bold hover:bg-red-700 transition">Reset</button>
             <button type="submit" class="px-10 py-2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold hover:from-yellow-500 hover:to-yellow-700 transition">Submit</button>
           </div>
         </form>
-      </div>
+        </div>
+        </div>
+
+      
     </section>
 
     <script>
       feather.replace();
 
-      // Step 1: Video Confirmation Logic
-  
-  feather.replace();
-
-  // Step 1: Video Confirmation Logic
-  const radios = document.querySelectorAll("input[name='watchedFirst']");
-  const form = document.getElementById("applicationForm");
+     const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+  const videoStep = document.getElementById("videoStep");
+  const formWrapper = document.getElementById("formWrapper");
   const msg = document.getElementById("watchMsg");
+  const backBtn = document.getElementById("backBtn");
 
-  // ✅ saare form inputs ko select karte hain
-  const formInputs = form.querySelectorAll("input, textarea, select, button");
+  yesBtn.addEventListener("click", () => {
+    // video step hide
+    // videoStep.classList.add("hidden");
+    // form show with smooth animation
+    formWrapper.classList.remove("hidden");
+      msg.classList.add("hidden");
+    backBtn.classList.add("hidden");
+    setTimeout(() => {
+      formWrapper.classList.remove("opacity-0", "translate-y-4");
+      formWrapper.classList.add("opacity-100", "translate-y-0");
+   
+    }, 50);
+  });
 
-  radios.forEach(radio => {
-    radio.addEventListener("change", () => {
-      if (radio.value === "Yes") {
-        msg.classList.add("hidden"); // message hide
-        formInputs.forEach(input => {
-          input.disabled = false; // saare fields enable
-        });
-      } else {
-        msg.classList.remove("hidden"); // message show
-        formInputs.forEach(input => {
-          // Reset button aur radio buttons ko disable mat karna
-          if ( input.type !== "reset") {
-            input.disabled = true;
-          }
-        });
-      }
-    });
-    });
+  noBtn.addEventListener("click", () => {
+    msg.classList.remove("hidden");
+    backBtn.classList.remove("hidden");
+    formWrapper.classList.add("hidden");
 
+          // formWrapper.classList.add("opacity-100", "translate-y-0");
+    
 
-
+  });
 
       // ✅ ORIGINAL SUBMIT SCRIPT (aapka pura code same hai, sirf watchedFirst ko watched me map kar diya)
       const scriptURL = "https://script.google.com/macros/s/AKfycby8QyoaZrueoPRCgi8c8LHjEj_7IFEBhKMVqPyGTR1tSo453r3Gp-SBjVidnpEmA_GF/exec";
@@ -202,9 +230,9 @@
           pointA: document.querySelector("input[placeholder='Point a']")?.value,
           pointB: document.querySelector("input[placeholder='Point b']")?.value,
           pointC: document.querySelector("input[placeholder='Point c']")?.value,
-          QualityA: document.querySelector("input[placeholder='Quality A']")?.value,
-          QualityB: document.querySelector("input[placeholder='Quality B']")?.value,
-          QualityC: document.querySelector("input[placeholder='Quality C']")?.value
+          qualityA: document.querySelector("input[placeholder='Quality A']")?.value,
+          qualityB: document.querySelector("input[placeholder='Quality B']")?.value,
+          qualityC: document.querySelector("input[placeholder='Quality C']")?.value
         };
 
         let requiredFields = ["fullName","contactNumber","email","city","state","country","qualification","age","profession","funds"];
