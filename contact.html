@@ -89,7 +89,10 @@
           <div>
             <h2 class="text-xl font-semibold mb-4" style="white-space: nowrap;"> Eligibility Criteria <span style="color: red; font-weight: bold;"> *</span></h2>
             <label class="block mb-2">Qualification</label>
-            <div class="space-y-2 text-lg md:text-xl text-gray-300" style="display: flex; align-items: baseline;justify-content: space-around; flex-wrap: wrap; gap: 5px;">
+            <div class="text-lg md:text-xl text-gray-300 
+            grid grid-cols-2 gap-3
+            md:flex md:items-baseline md:justify-around md:flex-wrap">
+            <!-- <div class="space-y-2 text-lg md:text-xl grid grid-template-columns-repeat(2,1fr) text-gray-300" style="display: flex; align-items: baseline;justify-content: space-around; flex-wrap: wrap; gap: 5px;"> -->
               <label class="flex items-baseline gap-2"><input type="radio" name="qualification" value="Graduate"> Graduate</label>
               <label class="flex items-baseline gap-2"><input type="radio" name="qualification" value="Post Graduate"> Post Graduate</label>
               <label class="flex items-baseline gap-2"><input type="radio" name="qualification" value="Doctorate"> Doctorate</label>
@@ -209,8 +212,8 @@
   });
 
       // ✅ ORIGINAL SUBMIT SCRIPT (aapka pura code same hai, sirf watchedFirst ko watched me map kar diya)
-      const scriptURL = "https://script.google.com/macros/s/AKfycby8QyoaZrueoPRCgi8c8LHjEj_7IFEBhKMVqPyGTR1tSo453r3Gp-SBjVidnpEmA_GF/exec";
-
+      // const scriptURL = "https://script.google.com/macros/s/AKfycby8QyoaZrueoPRCgi8c8LHjEj_7IFEBhKMVqPyGTR1tSo453r3Gp-SBjVidnpEmA_GF/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzk_B7TeGzGzqK8V7vkrMtmF7Xd6NKzFvdmIZ-WgGIWfmJ5XecMDCZuICdDQiWF2GRH/exec"
       document.getElementById("applicationForm").addEventListener("submit", function(e) {
         e.preventDefault();
         document.getElementById("loader").classList.remove("hidden");
