@@ -28,7 +28,7 @@
           </button>
           <h1 class="text-2xl md:text-3xl font-bold mb-6 text-yellow-400">Application Form</h1>
 
-        <form class="space-y-6">
+ <form id="applicationForm" class="space-y-6">
           <!-- 1) Video Confirmation -->
           <div>
             <label class="block font-semibold mb-2">1) Have you watched the complete Video?</label>
@@ -110,7 +110,10 @@
 
           <!-- Submit -->
           <div class="text-right">
-            <button type="submit" class="px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold hover:from-yellow-500 hover:to-yellow-700 transition">Submit</button>
+         
+    <button type="submit" class="px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold hover:from-yellow-500 hover:to-yellow-700 transition">Submit</button>
+
+            <!-- <button type="submit" class="px-6 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold hover:from-yellow-500 hover:to-yellow-700 transition">Submit</button> -->
           </div>
         </form>
       </div>
@@ -118,5 +121,47 @@
         <script>
       feather.replace();
     </script>
+    <script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycby8QyoaZrueoPRCgi8c8LHjEj_7IFEBhKMVqPyGTR1tSo453r3Gp-SBjVidnpEmA_GF/exec"; // Google Apps Script Web App URL
+// develpoment id = AKfycby8QyoaZrueoPRCgi8c8LHjEj_7IFEBhKMVqPyGTR1tSo453r3Gp-SBjVidnpEmA_GF
+  document.getElementById("applicationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = {
+      watched: document.querySelector("input[name='watched']:checked")?.value || "",
+      fullName: document.querySelector("input[placeholder='Full Name']").value,
+      contactNumber: document.querySelector("input[placeholder='Contact Number']").value,
+      email: document.querySelector("input[placeholder='Email Id']").value,
+      city: document.querySelector("input[placeholder='City']").value,
+      state: document.querySelector("input[placeholder='State']").value,
+      country: document.querySelector("input[placeholder='Country']").value,
+      qualification: document.querySelector("input[name='qualification']:checked")?.value || "",
+      age: document.querySelector("input[placeholder='Enter your age']").value,
+      profession: document.querySelector("input[name='profession']:checked")?.value || "",
+      funds: document.querySelector("input[name='funds']:checked")?.value || "",
+      pointA: document.querySelector("input[placeholder='Point a']").value,
+      pointB: document.querySelector("input[placeholder='Point b']").value,
+      pointC: document.querySelector("input[placeholder='Point c']").value
+    };
+
+     for (let key in data) {
+      if (!data[key]) {
+        alert(`Please fill in the ${key} field`);
+        return; // Stop form submission
+      }
+    }
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(res => {
+      if (res.result === "success") {
+        window.location.href = "thankyou.html"; // Redirect to Thank You page
+      }
+    })
+    .catch(err => console.error("Error:", err));
+  });
+</script>
   </body>
 </html>
