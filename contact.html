@@ -15,7 +15,7 @@
   <body class="bg-gray-950 text-gray-200">
 
     <!-- Loader (Hidden by default) -->
-<div id="loader" class="fixed inset-0 flex items-baseline justify-baseline bg-black/70 z-50 hidden">
+<div id="loader" class="fixed inset-0 flex items-center justify-center bg-black/70 z-50 hidden">
   <div class="animate-spin rounded-full h-16 w-16 border-4 border-yellow-400 border-t-transparent"></div>
 </div>
     <!-- Application Form -->
@@ -50,7 +50,16 @@
             <h2 class="text-xl font-semibold mb-4"> Personal Details <span style="color: red; font-weight: bold;"> *</span></h2>
             <div class="grid md:grid-cols-2 gap-4">
               <input type="text" placeholder="Full Name" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
-              <input type="text" placeholder="Contact Number" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
+              <input 
+  type="tel" 
+  placeholder="Contact Number" 
+  pattern="[0-9]{10}" 
+  maxlength="10"
+  class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3" 
+  required
+>
+
+              <!-- <input type="number" placeholder="Contact Number" min=10 maxlength="10" max="10" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3"> -->
               <input type="email" placeholder="Email Id" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
               <input type="text" placeholder="City" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
               <input type="text" placeholder="State" class="w-full rounded-lg bg-gray-800/60 border border-white/10 px-4 py-3">
